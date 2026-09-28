@@ -176,6 +176,13 @@ img{max-width:100%}
 .send span{display:block;color:var(--cream-soft);font-size:.97rem;margin-top:6px}
 .send li:nth-child(3){border-color:var(--amber);background:rgba(160,100,28,.12)}
 .mail{margin-top:36px}
+.mail-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.wa-ico{display:inline-block;width:1.15em;height:1.15em;background:currentColor;-webkit-mask:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/whatsapp.svg) center/contain no-repeat;mask:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/whatsapp.svg) center/contain no-repeat;vertical-align:-.18em}
+.wa-cta{background:transparent;color:var(--cream);border:1px solid var(--amber)}
+.wa-cta .wa-ico{margin-right:10px}
+.wa-float{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:10;width:58px;height:58px;border-radius:50%;background:var(--amber);color:var(--brown);display:grid;place-items:center;font-size:28px;box-shadow:0 0 0 3px var(--brown)}
+.wa-float:hover{background:var(--cream)}
+.wa-float:focus-visible{outline:2px solid var(--cream);outline-offset:3px}
 .mail .cta{font-size:clamp(1.05rem,2.6vw,1.35rem);padding:16px 24px 14px;margin-top:0;word-break:break-all}
 .mail p{margin:14px auto 0;max-width:34em;font-size:.95rem;color:var(--cream-soft)}
 .bye span{color:var(--amber)}
@@ -199,6 +206,8 @@ img{max-width:100%}
 </style>
 </head>
 <body>
+
+<a class="wa-float" href="https://wa.me/639171807096?text=Hi!%20I%27m%20interested%20in%20working%20at%20O%20KOKO." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp"><span class="wa-ico" aria-hidden="true"></span></a>
 
 <header class="night">
   <div class="wrap top">
@@ -412,13 +421,16 @@ img{max-width:100%}
       <li><b><i>3</i>Why you?</b><span>A few lines. Or better: a one-minute video of you talking about your craft.</span></li>
     </ol>
     <div class="mail">
-      <a class="cta" href="mailto:cocofuel.inc@gmail.com?subject=O%20KOKO%20application">cocofuel.inc@gmail.com</a>
+      <div class="mail-row">
+        <a class="cta" href="mailto:cocofuel.inc@gmail.com?subject=O%20KOKO%20application">cocofuel.inc@gmail.com</a>
+        <a class="cta wa-cta" href="https://wa.me/639171807096?text=Hi!%20I%27m%20interested%20in%20working%20at%20O%20KOKO." target="_blank" rel="noopener"><span class="wa-ico" aria-hidden="true"></span>WhatsApp us</a>
+      </div>
       <p>Video too big to attach? Send a link to it. Already chatting with us? Just reply there.</p>
     </div>
     <p class="bye">O KOKO. <span>Oh yeah!</span></p>
     <div class="foot">
       <div class="okoko-logo" role="img" aria-label="O KOKO, Coconut Fusion"><div class="wm">O KOKO</div><div class="sub">Coconut Fusion</div></div>
-      <p>Boracay Island · Opening November 2026 · cocofuel.inc@gmail.com</p>
+      <p>Boracay Island · Opening November 2026 · cocofuel.inc@gmail.com · WhatsApp +63 917 180 7096</p>
     </div>
   </div>
 </section>
