@@ -180,10 +180,10 @@ img{max-width:100%}
 .wa-ico{display:inline-block;width:1.15em;height:1.15em;background:currentColor;-webkit-mask:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/whatsapp.svg) center/contain no-repeat;mask:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/whatsapp.svg) center/contain no-repeat;vertical-align:-.18em}
 .wa-cta{background:transparent;color:var(--cream);border:1px solid var(--amber)}
 .wa-cta .wa-ico{margin-right:10px}
-.wa-float{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:10;width:58px;height:58px;border-radius:50%;background:var(--amber);color:var(--brown);display:grid;place-items:center;font-size:28px;box-shadow:0 0 0 3px var(--brown)}
+.wa-float{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:10;width:48px;height:48px;border-radius:50%;background:var(--amber);color:var(--brown);display:grid;place-items:center;font-size:24px;transition:opacity .2s}
+.wa-float.off{opacity:0;pointer-events:none}
 .wa-float:hover{background:var(--cream)}
 .mail-ico{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linejoin='round'%3E%3Crect x='2.5' y='5' width='19' height='14' rx='2'/%3E%3Cpath d='M3 6.5l9 6.5 9-6.5'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linejoin='round'%3E%3Crect x='2.5' y='5' width='19' height='14' rx='2'/%3E%3Cpath d='M3 6.5l9 6.5 9-6.5'/%3E%3C/svg%3E");margin-right:10px}
-.ms-float{bottom:calc(88px + env(safe-area-inset-bottom,0px))}
 .ms-ico{-webkit-mask-image:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/messenger.svg);mask-image:url(https://cdn.jsdelivr.net/npm/simple-icons@13/icons/messenger.svg)}
 .wa-float:focus-visible{outline:2px solid var(--cream);outline-offset:3px}
 .mail .cta{font-size:clamp(1.05rem,2.6vw,1.35rem);padding:16px 24px 14px;margin-top:0;word-break:break-all}
@@ -192,7 +192,7 @@ img{max-width:100%}
 .bye{font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--cream);margin-top:52px}
 .foot{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;margin-top:clamp(72px,10vw,120px);padding-top:26px;border-top:1px solid rgba(143,90,52,.55);text-align:left}
 .foot p{font-size:.84rem;color:var(--cream-soft)}
-.foot{margin-bottom:134px}
+.foot{margin-bottom:0}
 .foot .okoko-logo{font-size:44px}
 
 @media (max-width:880px){
@@ -201,10 +201,13 @@ img{max-width:100%}
   .parts div,.parts div+div{padding:16px 0 14px;border-left:0;border-bottom:1px solid var(--line)}
   .parts div:nth-child(odd){padding-right:14px}
   .badges,.send{grid-template-columns:1fr}
+  .sticker{top:-26px;bottom:auto;right:10px}
   .hero-img img{aspect-ratio:4/3;border-radius:50% 50% 6px 6px / 22% 22% 6px 6px}
 }
 @media (max-width:520px){
   .msg{max-width:92%}
+  .mail-row{flex-direction:column;align-items:stretch}
+  .mail-row .cta{text-align:center}
   .hero .okoko-logo{font-size:22vw}
 }
 </style>
@@ -212,7 +215,6 @@ img{max-width:100%}
 <body>
 
 <a class="wa-float" href="https://wa.me/639171807096?text=Hi!%20I%27m%20interested%20in%20working%20at%20O%20KOKO." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp"><span class="wa-ico" aria-hidden="true"></span></a>
-<a class="wa-float ms-float" href="https://m.me/okoko.boracay" target="_blank" rel="noopener" aria-label="Message O KOKO on Facebook Messenger"><span class="wa-ico ms-ico" aria-hidden="true"></span></a>
 
 <header class="night">
   <div class="wrap top">
@@ -440,6 +442,10 @@ img{max-width:100%}
     </div>
   </div>
 </section>
+<script>
+// hide the floating WhatsApp button while the apply section (which has its own buttons) is on screen
+(()=>{const f=document.querySelector('.wa-float'),a=document.getElementById('apply');if(!f||!a||!('IntersectionObserver' in window))return;new IntersectionObserver(e=>f.classList.toggle('off',e[0].isIntersecting),{threshold:.1}).observe(a)})();
+</script>
 
 </body>
 </html>
